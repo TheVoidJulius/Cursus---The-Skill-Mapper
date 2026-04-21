@@ -1,0 +1,66 @@
+.canvas {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--color-bg);
+}
+
+/* Dot grid via CSS radial-gradient */
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, var(--color-border-md) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+/* ── Empty state ── */
+.empty {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: var(--color-text-tertiary);
+  text-align: center;
+  padding: 24px;
+  pointer-events: none;
+}
+
+.emptyIcon {
+  font-size: 36px;
+  opacity: 0.2;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.empty p {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.empty small {
+  font-size: 11px;
+  display: block;
+}
+
+/* ── Connect-mode pulse ring ── */
+.pulse {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-accent);
+  pointer-events: none;
+  z-index: 4;
+  transform: translate(-50%, -50%);
+  animation: pulse 1.3s infinite ease-out;
+}
+
+@keyframes pulse {
+  0%   { transform: translate(-50%, -50%) scale(1);   opacity: 0.8; }
+  100% { transform: translate(-50%, -50%) scale(2.2); opacity: 0;   }
+}
