@@ -1,1 +1,62 @@
-style: add global CSS design tokens and reset
+/* ─── Design Tokens ──────────────────────────────────────── */
+:root {
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'DM Mono', monospace;
+
+  --color-bg:        #f5f4f0;
+  --color-surface:   #ffffff;
+  --color-border:    rgba(0, 0, 0, 0.10);
+  --color-border-md: rgba(0, 0, 0, 0.20);
+
+  --color-text-primary:   #1a1a18;
+  --color-text-secondary: #6b6b66;
+  --color-text-tertiary:  #9e9e99;
+
+  --color-accent:     #378ADD;
+  --color-success:    #1D9E75;
+  --color-warning:    #EF9F27;
+  --color-danger:     #E24B4A;
+  --color-purple:     #7F77DD;
+
+  /* Node accent palette — add or rearrange freely */
+  --node-colors: #378ADD, #1D9E75, #BA7517, #7F77DD, #D85A30;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.10);
+
+  --toolbar-h: 48px;
+  --statusbar-h: 32px;
+}
+
+/* Dark mode token overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg:        #18181a;
+    --color-surface:   #242428;
+    --color-border:    rgba(255,255,255,0.09);
+    --color-border-md: rgba(255,255,255,0.18);
+    --color-text-primary:   #f0efe8;
+    --color-text-secondary: #9e9e99;
+    --color-text-tertiary:  #6b6b66;
+  }
+}
+
+/* ─── Reset ──────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body, #root { width: 100%; height: 100%; overflow: hidden; }
+body { font-family: var(--font-sans); background: var(--color-bg); color: var(--color-text-primary); }
+
+button {
+  font-family: var(--font-sans);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+input {
+  font-family: var(--font-sans);
+  outline: none;
+}
